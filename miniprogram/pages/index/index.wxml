@@ -1,0 +1,88 @@
+<!--pages/index/index.wxml - 首页-->
+<view class="container">
+  <!-- 顶部日期 -->
+  <view class="header">
+    <view class="header-title">每日晨间简报</view>
+    <view class="header-date">{{dateStr}} {{weekDay}}</view>
+    <view class="header-update" wx:if="{{updateTime}}">更新时间：{{updateTime}}</view>
+  </view>
+
+  <!-- 刷新按钮 -->
+  <view class="refresh-bar">
+    <view class="refresh-btn {{loading ? 'disabled' : ''}}" bindtap="fetchData">
+      <text>{{loading ? '加载中...' : '刷新数据'}}</text>
+    </view>
+  </view>
+
+  <!-- 模块概览卡片 -->
+  <view class="dashboard">
+    <view class="dash-card {{item.hasNews ? 'has-news' : 'no-news'}}"
+          wx:for="{{modules}}" wx:key="id"
+          bindtap="goDetail" data-id="{{item.id}}">
+      <view class="dash-card-title">{{item.name}}</view>
+      <view class="dash-card-count">{{item.count}}</view>
+      <view class="dash-card-status {{item.hasNews ? 'status-ok' : 'status-none'}}">
+        {{item.hasNews ? '有新消息' : '暂无新消息'}}
+      </view>
+    </view>
+  </view>
+
+  <!-- 有新闻的模块列表 -->
+  <view class="section" wx:for="{{modules}}" wx:key="id" wx:if="{{item.hasNews}}">
+    <view class="section-header" bindtap="goDetail" data-id="{{item.id}}">
+      <view class="section-title">{{item.name}}</view>
+      <view class="section-arrow">查看详情 ></view>
+    </view>
+
+    <!-- 新闻列表 -->
+    <view wx:if="{{item.id === 1}}">
+      <view class="news-item" wx:for="{{item.items}}" wx:for-item="news" wx:key="index">
+        <view class="news-title">{{news.title}}</view>
+        <view class="news-meta">{{news.source}} | {{news.time}}</view>
+        <view class="news-summary">{{news.summary}}</view>
+        <view class="news-tags">
+          <text class="tag" wx:for="{{news.tags}}" wx:for-item="tag" wx:key="*this">{{tag}}</text>
+        </view>
+      </view>
+    </view>
+
+    <!-- 招聘列表 -->
+    <view wx:if="{{item.id === 2}}">
+      <view class="job-item" wx:for="{{item.items}}" wx:for-item="job" wx:key="index">
+        <view class="job-title">{{job.title}}</view>
+        <view class="job-salary">{{job.salary}}</view>
+        <view class="job-company">{{job.company}}</view>
+        <view class="job-tags">
+          <text class="tag" wx:for="{{job.tags}}" wx:for-item="tag" wx:key="*this">{{tag}}</text>
+        </view>
+        <view class="job-desc">{{job.desc}}</view>
+      </view>
+    </view>
+
+    <!-- 学校通知 -->
+    <view wx:if="{{item.id === 3}}">
+      <view class="notice-box" wx:for="{{item.items}}" wx:for-item="notice" wx:key="index">
+        <view class="notice-title">{{notice.title}}</view>
+        <view class="notice-content">{{notice.content}}</view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 加载中 -->
+  <view class="loading-box" wx:if="{{loading}}">
+    <view class="loading-icon">⏳</view>
+    <view class="loading-text">正在加载简报数据...</view>
+  </view>
+
+  <!-- 错误提示 -->
+  <view class="error-box" wx:if="{{errorMsg}}">
+    <view class="error-icon">⚠️</view>
+    <view class="error-text">{{errorMsg}}</view>
+    <view class="error-retry" bindtap="fetchData">点击重试</view>
+  </view>
+
+  <!-- 底部 -->
+  <view class="footer">
+    <text>每日晨间简报 · 自动化生成</text>
+  </view>
+</view>

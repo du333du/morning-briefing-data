@@ -1,0 +1,46 @@
+/* pages/detail/detail.wxss - 详情页样式 */
+.page-header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: #fff; padding: 32rpx 24rpx; border-radius: 16rpx;
+  margin-bottom: 24rpx; box-shadow: 0 10rpx 30rpx rgba(102,126,234,0.3);
+}
+.page-title { font-size: 36rpx; font-weight: 700; margin-bottom: 8rpx; }
+.page-subtitle { font-size: 26rpx; opacity: 0.9; }
+
+.detail-section { margin-bottom: 24rpx; }
+
+.news-detail-item {
+  background: #fff; border-radius: 12rpx; padding: 24rpx;
+  margin-bottom: 16rpx; box-shadow: 0 4rpx 12rpx rgba(0,0,0,0.06);
+}
+.news-detail-title { font-size: 30rpx; font-weight: 600; color: #1a1a1a; margin-bottom: 12rpx; line-height: 1.6; }
+.news-detail-meta { font-size: 22rpx; color: #999; margin-bottom: 12rpx; }
+.news-detail-summary { font-size: 26rpx; color: #555; line-height: 1.8; margin-bottom: 12rpx; }
+.news-detail-tags { margin-bottom: 12rpx; }
+.news-detail-link { color: #667eea; font-size: 26rpx; margin-top: 8rpx; }
+
+.job-detail-item {
+  background: #fff; border-radius: 12rpx; padding: 24rpx;
+  margin-bottom: 16rpx; box-shadow: 0 4rpx 12rpx rgba(0,0,0,0.06);
+  border: 1rpx solid #f0f0f0;
+}
+.job-detail-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12rpx; }
+.job-detail-title { font-size: 30rpx; font-weight: 600; color: #1a1a1a; flex: 1; }
+.job-detail-salary { font-size: 28rpx; color: #f5222d; font-weight: 600; margin-left: 16rpx; }
+.job-detail-company { font-size: 26rpx; color: #666; margin-bottom: 12rpx; }
+.job-detail-tags { margin-bottom: 12rpx; }
+.job-detail-desc { font-size: 26rpx; color: #555; line-height: 1.7; }
+.job-detail-link { color: #667eea; font-size: 26rpx; margin-top: 16rpx; }
+
+.notice-detail-item {
+  background: #fff7e6; border: 1rpx solid #ffd591;
+  border-radius: 12rpx; padding: 24rpx; margin-bottom: 16rpx;
+}
+.notice-detail-title { font-weight: 600; color: #d46b08; margin-bottom: 12rpx; font-size: 30rpx; }
+.notice-detail-content { font-size: 26rpx; color: #555; line-height: 1.8; }
+
+.contest-box { text-align: center; padding: 80rpx 0; color: #999; }
+.contest-icon { font-size: 80rpx; margin-bottom: 24rpx; }
+.contest-text { font-size: 28rpx; margin-bottom: 12rpx; }
+
+.footer { text-align: center; padding: 32rpx 0; color: #999; font-size: 24rpx; }

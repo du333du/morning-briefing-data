@@ -1,0 +1,61 @@
+<!--pages/detail/detail.wxml - 详情页-->
+<view class="container">
+  <view class="page-header">
+    <view class="page-title">{{moduleName}}</view>
+    <view class="page-subtitle">共 {{itemCount}} 条信息</view>
+  </view>
+
+  <!-- 模块1：新闻详情 -->
+  <view class="detail-section" wx:if="{{moduleId === 1}}">
+    <view class="news-detail-item" wx:for="{{items}}" wx:key="index">
+      <view class="news-detail-title">{{item.title}}</view>
+      <view class="news-detail-meta">{{item.source}} | {{item.time}}</view>
+      <view class="news-detail-summary">{{item.summary}}</view>
+      <view class="news-detail-tags">
+        <text class="tag" wx:for="{{item.tags}}" wx:key="*this">{{item}}</text>
+      </view>
+      <view class="news-detail-link" wx:if="{{item.url}}" bindtap="openLink" data-url="{{item.url}}">
+        查看原文 >
+      </view>
+    </view>
+  </view>
+
+  <!-- 模块2：招聘详情 -->
+  <view class="detail-section" wx:if="{{moduleId === 2}}">
+    <view class="job-detail-item" wx:for="{{items}}" wx:key="index">
+      <view class="job-detail-header">
+        <view class="job-detail-title">{{item.title}}</view>
+        <view class="job-detail-salary">{{item.salary}}</view>
+      </view>
+      <view class="job-detail-company">{{item.company}}</view>
+      <view class="job-detail-tags">
+        <text class="tag" wx:for="{{item.tags}}" wx:key="*this">{{item}}</text>
+      </view>
+      <view class="job-detail-desc">{{item.desc}}</view>
+      <view class="job-detail-link" wx:if="{{item.url}}" bindtap="openLink" data-url="{{item.url}}">
+        查看原文 >
+      </view>
+    </view>
+  </view>
+
+  <!-- 模块3：学校通知详情 -->
+  <view class="detail-section" wx:if="{{moduleId === 3}}">
+    <view class="notice-detail-item" wx:for="{{items}}" wx:key="index">
+      <view class="notice-detail-title">{{item.title}}</view>
+      <view class="notice-detail-content">{{item.content}}</view>
+    </view>
+  </view>
+
+  <!-- 模块4：运动会征集结果 -->
+  <view class="detail-section" wx:if="{{moduleId === 4}}">
+    <view class="contest-box">
+      <view class="contest-icon">📋</view>
+      <view class="contest-text">征集截止日期：2026年7月10日</view>
+      <view class="contest-text">结果暂未公布，请耐心等待。</view>
+    </view>
+  </view>
+
+  <view class="footer">
+    <text>每日晨间简报 · 自动化生成</text>
+  </view>
+</view>
